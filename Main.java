@@ -53,29 +53,31 @@ class Main {
             System.out.println("Wykryto błedny wiek!");
           } catch (ZlaOpcja e){
             System.out.println("Wpisz liczbę!");
+            skaner.next();
           }
         }
 
     }
 
     public static int menu() throws ZlaOpcja {
-        int numer = 0;
 
-        System.out.println();
-        System.out.println();
-        System.out.println("Menu: ");
-        System.out.println("1. Dodaj studenta");
-        System.out.println("2. Wypisz listę studentów");
-        System.out.println("3. Wyszukaj po imieniu");
-        System.out.println("0. Wyjście z programu");
-        System.out.print("Wybierz opcję: ");
+      int numer = 0;
 
-        try{
-            numer = skaner.nextInt();
-          } catch (InputMismatchException e){
-            throw new ZlaOpcja();
-          }
+      System.out.println();
+      System.out.println();
+      System.out.println("Menu: ");
+      System.out.println("1. Dodaj studenta");
+      System.out.println("2. Wypisz listę studentów");
+      System.out.println("3. Wyszukaj po imieniu");
+      System.out.println("0. Wyjście z programu");
+      System.out.print("Wybierz opcję: ");
+
+      try{
+        numer = skaner.nextInt();
         return numer;
+      } catch (InputMismatchException e){
+        throw new ZlaOpcja();
+      }
     }
 
     public static void OP1() throws IOException, ZleImie,ZleNazwisko,ZlaData,ZlyWiek {
@@ -128,7 +130,7 @@ class Main {
       System.out.print("Podaj datę urodzenia DD-MM-YYYY: ");
       data = skaner.nextLine();
       try{
-        DateFormat format = new SimpleDateFormat("dd-MM-yyy");
+        DateFormat format = new SimpleDateFormat("dd-MM-yyyy");
         format.setLenient(false);
         format.parse(data);
 
